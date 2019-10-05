@@ -6,8 +6,13 @@ A Python-based [AWS Lambda](https://aws.amazon.com/lambda/) function to run [MyS
 Deployment
 ----------
 
-- Run `make` on Amazon Linux to create a Lambda-compatible distribution package `dist.zip`
-- Use AWS console or CLI to create the function based on the given package
+- Get the distribution package
+  - from the [releases page](https://github.com/rrobby86/lambda-mysql-runner/releases)
+  - building it in an Amazon Linux environment, e.g. an EC2 instance, Docker image or [CodeBuild](https://aws.amazon.com/codebuild/) (build specification is included in the repository)
+- Use AWS console or CLI to create a Lambda function based on the package, setting
+  - runtime: `python3.7`
+  - handler function: `func.handler`
+  - IAM execution role, VPC, ... appropriately for your use case
 
 Usage
 -----
